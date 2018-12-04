@@ -1,0 +1,6 @@
+---
+  name: Install banshee media player
+  package:
+    state: latest
+    name:
+      - banshee

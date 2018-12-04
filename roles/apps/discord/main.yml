@@ -1,0 +1,9 @@
+---
+
+  name: Download latest Discord version
+  get_url:
+    url: https://discordapp.com/api/download?platform=linux&format=deb
+    dest: {{ user_home_dir }}/Downloads
+
+  name: Install Discord
+  command: sudo dpkg -i {{ user_home_dir }}/Downloads/discord*.deb

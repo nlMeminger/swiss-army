@@ -1,0 +1,6 @@
+---
+  name: Install Libreoffice suite
+  package:
+    state: latest
+    name:
+      - libreoffice
