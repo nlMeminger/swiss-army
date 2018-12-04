@@ -1,0 +1,90 @@
+---
+- name: import third-party repository signing keys
+  rpm_key: key={{ item }} state=present
+  with_items:
+    - https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+    - https://negativo17.org/repos/RPM-GPG-KEY-slaanesh
+
+- name: add RPM Fusion repositories
+  package:
+    state: present
+    name:
+      - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedora_version }}.noarch.rpm
+      - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ fedora_version }}.noarch.rpm
+
+- name: add other third-party repositories
+  apt_repository:
+    repo: {{ item }}
+  with_items:
+    - 
+  update_cache: yes
+
+- name: install base packages
+  package:
+    state: latest
+    name:
+
+      - ansible
+      - ansible-python3
+      - arandr
+      - bash-completion
+      - blueman
+        #      - brasero
+        #      - brasero-nautilus
+        #      - chromaprint-tools
+        #      - copr-cli
+      - docker
+        #      - epiphany
+        #      - fedpkg
+        #      - fedora-packager
+      - feh
+        #      - ffmpeg
+      - firewalld
+        #      - flash-plugin
+      - git
+        #      - gnome-shell-extension-pomodoro
+        #      - gobby05
+        #      - golang
+        #      - google-roboto-slab-#onts
+        #      - gstreamer-ffmpeg
+        #      - gstreamer1-plugins-bad-free-extras
+        #      - gstreamer1-plugins-bad-nonfree
+        #      - gstreamer1-plugins-ugly
+      - hexchat
+        #      - htop
+      - inkscape
+      - java-11-openjdk
+        #      - jpegoptim
+        #      - jq
+        #      - libselinux-python
+      - libvirt
+      - libvirt-devel
+        #      - meld
+        #      - mpv
+        #      - nautilus-dropbox
+      - network-manager-applet
+        #      - overpass-fonts
+        #      - overpass-mono-fonts
+        #      - pandoc
+        #      - pass
+        #      - pavucontrol
+        #      - picard
+        #      - podman
+        #      - powerline-fonts
+      - pulseaudio-utils
+        #      - python2-flake8
+        #      - python3-flake8
+        #      - ripright
+        #      - smartmontools
+      - spotify-client
+        #      - strace
+        #      - sublime-text
+      - telegram-desktop
+        #      - typetype-molot-fonts
+        #      - '@vagrant'
+        #      - vagrant-doc
+        #      - vagrant-sshfs
+        #      - '@virtualization'
+        #      - visualboyadvance-m
+        #      - youtube-dl
+
