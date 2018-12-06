@@ -1,29 +1,8 @@
 ---
-- name: import third-party repository signing keys
-  rpm_key: key={{ item }} state=present
-  with_items:
-    - https://download.sublimetext.com/sublimehq-rpm-pub.gpg
-    - https://negativo17.org/repos/RPM-GPG-KEY-slaanesh
-
-- name: add RPM Fusion repositories
-  package:
-    state: present
-    name:
-      - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedora_version }}.noarch.rpm
-      - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ fedora_version }}.noarch.rpm
-
-- name: add other third-party repositories
-  apt_repository:
-    repo: {{ item }}
-  with_items:
-    - 
-  update_cache: yes
-
 - name: install base packages
   package:
     state: latest
     name:
-
       - ansible
       - ansible-python3
       - arandr
@@ -39,7 +18,7 @@
         #      - fedora-packager
       - feh
         #      - ffmpeg
-      - firewalld
+      - fiewalld
         #      - flash-plugin
       - git
         #      - gnome-shell-extension-pomodoro
@@ -53,6 +32,7 @@
       - hexchat
         #      - htop
       - inkscape
+      - i3
       - java-11-openjdk
         #      - jpegoptim
         #      - jq
@@ -87,4 +67,16 @@
         #      - '@virtualization'
         #      - visualboyadvance-m
         #      - youtube-dl
+      - Virtualbox
+
+
+
+ - name: Add spotify repository and install
+   command: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+   command: echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+   command: sudo apt-get update
+   command: sudo apt-get install spotify-client
+
+
+
 

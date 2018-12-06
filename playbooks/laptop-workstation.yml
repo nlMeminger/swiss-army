@@ -1,0 +1,17 @@
+---
+- name: set up Nathaniel's preferred Fedora Workstation configuration
+  hosts: ubuntu-laptop-workstation
+  become: yes
+
+  roles:
+    - sys/base-image
+    - system/ubuntu-laptop-workstation
+    - apps/base-workstation
+    - apps/bash
+    - apps/git
+    - apps/i3wm
+    - apps/minecraft
+    - apps/ssh
+    - apps/task
+    - apps/thunderbird
+    - apps/vim
