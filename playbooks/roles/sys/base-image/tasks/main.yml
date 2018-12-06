@@ -1,0 +1,46 @@
+---
+- name: remove unused packages
+  package:
+    state: absent
+    name:
+      - evolution
+      - evolution-ews
+      - evolution-help
+      - gnome-boxes
+      - gnome-calendar
+      - gnome-characters
+      - gnome-classic-session
+      - gnome-contacts
+      - gnome-documents
+      - gnome-documents-libs
+      - gnome-getting-started-docs
+      - gnome-initial-setup
+      - gnome-maps
+      - gnome-photos
+      - gnome-system-monitor
+      - gnome-weather
+      - logwatch
+      - mosh
+      - powerline
+      - python34
+      - python34-libs
+      - python34-pip
+      - python34-setuptools
+      - ntp
+      - tmux-powerline
+      - tomahawk
+
+- name: Update and upgrade apt packages
+  become: true
+  apt:
+    upgrade: yes
+    update_cache: yes
+    cache_valid_time: 86400 #One day
+
+- name: add target user
+  user:
+    name: "{{ target_user }}"
+    comment: "{{ target_user_name }}"
+    groups: wheel
+    append: yes
+    generate_ssh_key: yes

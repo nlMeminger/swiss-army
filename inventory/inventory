@@ -1,2 +1,2 @@
 [ubuntu-laptop-workstation]
-127.0.0.1 ansible-connection=local
+10.0.2.15 ansible-connection=local

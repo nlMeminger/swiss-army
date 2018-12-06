@@ -1,0 +1,82 @@
+---
+- name: install base packages
+  package:
+    state: latest
+    name:
+      - ansible
+      - ansible-python3
+      - arandr
+      - bash-completion
+      - blueman
+        #      - brasero
+        #      - brasero-nautilus
+        #      - chromaprint-tools
+        #      - copr-cli
+      - docker
+        #      - epiphany
+        #      - fedpkg
+        #      - fedora-packager
+      - feh
+        #      - ffmpeg
+      - fiewalld
+        #      - flash-plugin
+      - git
+        #      - gnome-shell-extension-pomodoro
+        #      - gobby05
+        #      - golang
+        #      - google-roboto-slab-#onts
+        #      - gstreamer-ffmpeg
+        #      - gstreamer1-plugins-bad-free-extras
+        #      - gstreamer1-plugins-bad-nonfree
+        #      - gstreamer1-plugins-ugly
+      - hexchat
+        #      - htop
+      - inkscape
+      - i3
+      - java-11-openjdk
+        #      - jpegoptim
+        #      - jq
+        #      - libselinux-python
+      - libvirt
+      - libvirt-devel
+        #      - meld
+        #      - mpv
+        #      - nautilus-dropbox
+      - network-manager-applet
+        #      - overpass-fonts
+        #      - overpass-mono-fonts
+        #      - pandoc
+        #      - pass
+        #      - pavucontrol
+        #      - picard
+        #      - podman
+        #      - powerline-fonts
+      - pulseaudio-utils
+        #      - python2-flake8
+        #      - python3-flake8
+        #      - ripright
+        #      - smartmontools
+      - spotify-client
+        #      - strace
+        #      - sublime-text
+      - telegram-desktop
+        #      - typetype-molot-fonts
+        #      - '@vagrant'
+        #      - vagrant-doc
+        #      - vagrant-sshfs
+        #      - '@virtualization'
+        #      - visualboyadvance-m
+        #      - youtube-dl
+      - Virtualbox
+
+
+
+ - name: Add spotify repository and install
+   command: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+   command: echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+   command: sudo apt-get update
+   command: sudo apt-get install spotify-client
+
+
+
+
