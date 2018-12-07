@@ -1,2 +1,9 @@
 [ubuntu-laptop-workstation]
 10.0.2.15 ansible-connection=local
+
+[abba]
+172.16.10.2
+
+[abba:vars]
+ansible_ssh_user=nathaniel
+ansible_ssh_private_key_file=~/.ssh/id_rsa
