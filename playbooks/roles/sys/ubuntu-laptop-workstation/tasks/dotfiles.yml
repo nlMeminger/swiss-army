@@ -1,0 +1,6 @@
+---
+  - name: Download github repository with dotfiles
+    git:
+      repo: https://github.com/nlMeminger/config.git
+      clone: yes
+      dest: /home/nathaniel/configFiles

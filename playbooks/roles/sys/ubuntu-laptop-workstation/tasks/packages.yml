@@ -1,26 +1,26 @@
 ---
-- name: install base packages
-  package:
-    state: latest
-    name:
-      - ansible
-      - ansible-python3
-      - arandr
-      - bash-completion
-      - blueman
+  - name: install base packages
+    package:
+      state: latest
+      name:
+        - ansible
+          #- ansible-python3
+        - arandr
+        - bash-completion
+        - blueman
         #      - brasero
         #      - brasero-nautilus
         #      - chromaprint-tools
         #      - copr-cli
-      - docker
+        - docker
         #      - epiphany
         #      - fedpkg
         #      - fedora-packager
-      - feh
+        - feh
         #      - ffmpeg
-      - fiewalld
+        - firewalld
         #      - flash-plugin
-      - git
+        - git
         #      - gnome-shell-extension-pomodoro
         #      - gobby05
         #      - golang
@@ -29,20 +29,20 @@
         #      - gstreamer1-plugins-bad-free-extras
         #      - gstreamer1-plugins-bad-nonfree
         #      - gstreamer1-plugins-ugly
-      - hexchat
+        - hexchat
         #      - htop
-      - inkscape
-      - i3
-      - java-11-openjdk
+        - inkscape
+        - i3
+          #- java-11-openjdk
         #      - jpegoptim
         #      - jq
         #      - libselinux-python
-      - libvirt
-      - libvirt-devel
+        #- libvirt
+        #- libvirt-devel
         #      - meld
         #      - mpv
         #      - nautilus-dropbox
-      - network-manager-applet
+        - network-manager
         #      - overpass-fonts
         #      - overpass-mono-fonts
         #      - pandoc
@@ -51,32 +51,21 @@
         #      - picard
         #      - podman
         #      - powerline-fonts
-      - pulseaudio-utils
+        - pulseaudio-utils
         #      - python2-flake8
         #      - python3-flake8
         #      - ripright
         #      - smartmontools
-      - spotify-client
+        #- spotify-client
         #      - strace
         #      - sublime-text
-      - telegram-desktop
+        - telegram-desktop
         #      - typetype-molot-fonts
+        - ufw
         #      - '@vagrant'
         #      - vagrant-doc
         #      - vagrant-sshfs
         #      - '@virtualization'
         #      - visualboyadvance-m
         #      - youtube-dl
-      - Virtualbox
-
-
-
- - name: Add spotify repository and install
-   command: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
-   command: echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-   command: sudo apt-get update
-   command: sudo apt-get install spotify-client
-
-
-
-
+        - virtualbox

@@ -1,0 +1,7 @@
+---
+  - name: add vimrc
+    copy:
+      src: "{{ role_path }}/files/.vimrc"
+      dest: "/home/nathaniel/.vimrc"
+      group: "nathaniel"
+      owner: "nathaniel"

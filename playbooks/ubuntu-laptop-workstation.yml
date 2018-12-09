@@ -6,12 +6,11 @@
   roles:
     - sys/base-image
     - sys/ubuntu-laptop-workstation
-    #- apps/base-workstation
     #- apps/bash
     #- apps/git
-    #- apps/i3wm
+    - apps/i3
     #- apps/minecraft
     #- apps/ssh
     #- apps/task
     #- apps/thunderbird
-    #- apps/vim
+    - apps/vim

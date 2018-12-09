@@ -37,10 +37,10 @@
     update_cache: yes
     cache_valid_time: 86400 #One day
 
-- name: add target user
-  user:
-    name: "{{ target_user }}"
-    comment: "{{ target_user_name }}"
-    groups: wheel
-    append: yes
-    generate_ssh_key: yes
+    #- name: add target user
+    #user:
+    #name: "nathaniel"
+    #comment: "nathaniel"
+    #groups: wheel
+    #append: yes
+    #generate_ssh_key: yes

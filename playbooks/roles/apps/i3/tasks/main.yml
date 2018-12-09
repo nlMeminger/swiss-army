@@ -1,0 +1,26 @@
+- name: create i3wm user config directory
+  file:
+    state: directory
+    path: "/home/nathaniel/.config/i3"
+    group: "nathaniel"
+    owner: "nathaniel"
+
+- name: add i3wm user config files
+  copy:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "/home/nathaniel/.config/i3/{{ item }}"
+    group: "nathaniel"
+    owner: "nathaniel"
+  with_items:
+    - config
+
+- name: add i3wm user scripts
+  copy:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "/home/nathaniel/.config/i3/{{ item }}"
+    group: "nathaniel"
+    owner: "nathaniel"
+    mode: 0775
+  with_items:
+    - fuzzy_lock.sh
+    - i3exit.sh
